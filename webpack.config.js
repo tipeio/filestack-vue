@@ -5,7 +5,10 @@ module.exports = {
   entry: './src/Filestack.vue',
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'index.js'
+    filename: 'index.js',
+    libraryTarget: 'umd',
+    library: 'filestack-vue',
+    umdNamedDefine: true
   },
   externals: {
     'vue-types': 'vue-types',
