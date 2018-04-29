@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="app">
+
+    {{ message }}
+    <filestack
+      :apikey="apiKey"
+      @success="onSuccess"
+      @error="onError"
+    >
+      <div>
+        <strong>Find an avatar</strong>
+        <button>Pick</button>
+      </div>
+    </filestack>
+  </div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="https://static.filestackapi.com/v3/filestack.js"></script>
+  <script src="index.js"></script>
+  <script>
+    const key = 'Your Key Here';
+    const Filestack = window['filestack-vue'];
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello',
+        apiKey: key
+      },
+      methods: {
+        onSuccess(event) {
+          console.log('Success: ',event);
+        },
+        onError(event) {
+          console.log('Error: ', event)
+        }
+      },
+      components: {
+        'filestack': Filestack.default
+      }
+    })
+  </script>
+</body>
+</html>

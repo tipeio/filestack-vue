@@ -6,20 +6,39 @@
 
 <script>
 import filestack from 'filestack-js'
-import VueTypes from 'vue-types'
 
 export default {
   props: {
-    apikey: VueTypes.string.def(''),
-    file: VueTypes.objectOf(VueTypes.any).def(null),
-    link: VueTypes.bool.def(false),
-    mode: VueTypes.string.def('pick'),
-    options: VueTypes.objectOf(VueTypes.any).def({}),
-    security: VueTypes.objectOf(VueTypes.any).def(null),
-    cname: VueTypes.string.def(null)
+    apikey: String,
+    file: {
+      type: Object,
+      default: null
+    },
+    link: {
+      type: Boolean,
+      default: false
+    },
+    mode: {
+      type: String,
+      default: 'pick'
+    },
+    options: {
+      type: Object,
+      default: function() {
+        return {};
+      }
+    },
+    security: {
+      type: Object,
+      default: null
+    },
+    cname: {
+      type: String,
+      default: null
+    }
   },
   methods: {
-    onsuccess (result) {
+    onSuccess (result) {
       this.$emit('success', result)
     },
     onError (err) {
