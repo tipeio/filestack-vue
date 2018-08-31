@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import filestack from 'filestack-js'
+import * as filestack from 'filestack-js'
 
 export default {
   props: {
