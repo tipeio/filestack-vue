@@ -84,7 +84,7 @@ export default {
         return client.remove(handle, security)
       }
 
-      return client.pick(ops)
+      return client.picker(ops).open()
     }
   }
 }
