@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import * as filestack from 'filestack-js'
+const filestack = require('filestack-js');
 
 export default {
   props: {
